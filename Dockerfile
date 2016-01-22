@@ -9,5 +9,13 @@ RUN echo "ubuntu-nginx build ok" > /usr/share/nginx/html/index.html
 #ENTRYPOINT 提供的命令不会被覆盖
 ENTRYPOINT [ "/user/bin/nginx","-g","daemon off;" ]
 #WORKDIR 设置和切换工作目录
-#ENV 在镜像构建过程中设置环境变量
+#ENV 在镜像构建过程中设置环境变量,这些环境变量同样会被记录在构建的容器中。也可以在启动命令中指定 -e “WEB_PORT=8080” 来设置环境变量
+#例如
+#ENV TARGET_DIR /opt/app
+#WORKDIR $TARGET_DIR
+
+#USER 指定该镜像会以什么样的用户去运行，run 命令中通过-u 选项来覆盖该指令的值。 
+#VOLUME 添加卷 
+#例如 VOLUME [ "/opt/project","/data"]
+
 EXPOSE 80
