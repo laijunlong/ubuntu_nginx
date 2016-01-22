@@ -18,4 +18,13 @@ ENTRYPOINT [ "/user/bin/nginx","-g","daemon off;" ]
 #VOLUME 添加卷 
 #例如 VOLUME [ "/opt/project","/data"]
 
+#ADD 指令用来将构建环境下的文件和目录复制到镜像中。比如，在安装一个应用程序时，ADD指令需要源文件位置和目的文件位置两个参数
+#例如 ADD software.lic /opt/application/software.lic
+#ADD 指令会将构建目录下的 software.lic 文件复制到镜像中的 /opt/application/software.lic。可以是URL的源地址
+#如果是归档文件 ADD 会自动将归档文件解开(unpack)
+#例如 ADD latest.tar.gz /var/www/wordpress/
+
+#COPY 只关心在构建上下文中复制本地文件，不会去做文件提取和解压工作。
+#例如 COPY conf.d /etc/apache2/
+
 EXPOSE 80
