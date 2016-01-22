@@ -8,4 +8,6 @@ RUN echo "ubuntu-nginx build ok" > /usr/share/nginx/html/index.html
 #CMD [ "/bin/bash" ]
 #ENTRYPOINT 提供的命令不会被覆盖
 ENTRYPOINT [ "/user/bin/nginx","-g","daemon off;" ]
+#WORKDIR 设置和切换工作目录
+#ENV 在镜像构建过程中设置环境变量
 EXPOSE 80
